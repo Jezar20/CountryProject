@@ -1,0 +1,441 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".retro.view.MainActivity">
+
+<!--    <com.example.retrofit.retro.CountryDetailsView-->
+<!--        android:id="@+id/countryDetailsView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:queryHint="Search Country"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/flagNameTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFDAD5"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:textAllCaps="true"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp">
+                <ImageView
+                    android:id="@+id/flagImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#10000000"
+                    android:contentDescription="Flag"
+                    android:padding="30dp"
+                    android:scaleType="fitCenter" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/nameTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#F1F4FA"
+                        android:drawableStart="@drawable/flag"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/officialTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#EAF0F8"
+                        android:drawableStart="@drawable/official"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/capitalTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#F1F4FA"
+                        android:drawableStart="@drawable/capital"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/currenciesTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#EAF0F8"
+                        android:drawableStart="@drawable/currency"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/currenciesSymbolTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#F1F4FA"
+                        android:drawableStart="@drawable/currency_symbol"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/currenciesCodeTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#EAF0F8"
+                        android:drawableStart="@drawable/currency_code"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/regionTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#F1F4FA"
+                        android:drawableStart="@drawable/region"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/timezonesTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#EAF0F8"
+                        android:drawableStart="@drawable/timezones"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/countryListTxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#EDEDEE"
+        android:fontFamily="@font/poppinsregular"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_country"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:orientation="vertical"-->
+<!--tools:context="retro.MainActivity">-->
+
+<!--<ScrollView-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toTopOf="parent">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <SearchView-->
+<!--            android:id="@+id/searchView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:queryHint="Search Country" />-->
+
+<!--        &lt;!&ndash;            <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:id="@+id/countryListTxt"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:background="@android:color/white"&ndash;&gt;-->
+<!--        &lt;!&ndash;                android:fontFamily="@font/poppinsregular">&ndash;&gt;-->
+<!--        &lt;!&ndash;            </androidx.recyclerview.widget.RecyclerView>&ndash;&gt;-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardElevation="10dp"-->
+<!--            app:cardMaxElevation="12dp">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/flagNameTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#FFDAD5"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardElevation="10dp"-->
+<!--            app:cardMaxElevation="12dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/flagImageView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:background="#10000000"-->
+<!--                android:contentDescription="Flag"-->
+<!--                android:padding="30dp"-->
+<!--                android:scaleType="fitCenter" />-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardElevation="10dp"-->
+<!--            app:cardMaxElevation="12dp">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/nameTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#F1F4FA"-->
+<!--                    android:drawableStart="@drawable/flag"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/officialTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#EAF0F8"-->
+<!--                    android:drawableStart="@drawable/official"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/capitalTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#F1F4FA"-->
+<!--                    android:drawableStart="@drawable/capital"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/currenciesTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#EAF0F8"-->
+<!--                    android:drawableStart="@drawable/currency"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/currenciesSymbolTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#F1F4FA"-->
+<!--                    android:drawableStart="@drawable/currency_symbol"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/currenciesCodeTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#EAF0F8"-->
+<!--                    android:drawableStart="@drawable/currency_code"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/regionTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#F1F4FA"-->
+<!--                    android:drawableStart="@drawable/region"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/timezonesTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#EAF0F8"-->
+<!--                    android:drawableStart="@drawable/timezones"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:fontFamily="@font/poppinsregular"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:textSize="20sp" />-->
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+<!--    </LinearLayout>-->
+<!--</ScrollView>-->
+<!--&lt;!&ndash;    <ListView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/countryListTxt"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_gravity="top"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:background="#FFFFFF"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="50dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:visibility="gone" />&ndash;&gt;-->
+
+<!--<androidx.recyclerview.widget.RecyclerView-->
+<!--    android:id="@+id/countryListTxt"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginTop="45dp"-->
+<!--    android:background="#EDEDEE"-->
+<!--    android:fontFamily="@font/poppinsregular"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintBaseline_toBottomOf="@id/searchView">-->
+
+<!--    &lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:id="@+id/flagImageListView"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_width="40dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_height="40dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_marginEnd="8dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:contentDescription="Flag" />&ndash;&gt;-->
+<!--    &lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:id="@+id/flagImageListView"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_width="50dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_height="30dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_marginEnd="16dp" />&ndash;&gt;-->
+
+<!--</androidx.recyclerview.widget.RecyclerView>-->
+
+<!--&lt;!&ndash;    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:orientation="horizontal">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/flagImageListView"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="50dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginEnd="16dp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/countryNameTextView"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="18sp" />&ndash;&gt;-->
+<!--&lt;!&ndash;    </LinearLayout>&ndash;&gt;-->
+
+<!--</FrameLayout >-->
+
+
