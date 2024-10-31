@@ -4,6 +4,7 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.ImageView
@@ -190,11 +191,15 @@ class CountryAdapter(
     class CountryViewHolder(view: View, val onItemClicked: (String) -> Unit, val onHideAdapter: () -> Unit) : RecyclerView.ViewHolder(view) {
         val countryName: TextView = view.findViewById(android.R.id.text1)
         val flagImage: ImageView = view.findViewById(R.id.flagImageListView)
+        //val button: Button = view.findViewById(R.id.myButton)
 
         fun bind(country: CountryData) {
             itemView.setOnClickListener {
                 onItemClicked(country.name.common)
                 onHideAdapter()
+            }
+            itemView.setOnClickListener {
+                it.isSelected = !it.isSelected // Toggle button state
             }
         }
     }
@@ -212,6 +217,7 @@ class CountryAdapter(
     }
 
     override fun getItemCount() = countryList.size
+
 }
 
 

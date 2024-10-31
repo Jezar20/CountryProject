@@ -144,13 +144,6 @@ class CountryViewModel @Inject constructor(private val countryRepository: Countr
             countryTimeZone.postValue("Timezones: ${country.timezones}")
         }
     }
-    fun showRecyclerView() {
-        recyclerViewVisibility.value = View.VISIBLE
-    }
-
-    fun hideRecyclerView() {
-        recyclerViewVisibility.value = View.GONE
-    }
 
 }
 

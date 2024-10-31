@@ -668,6 +668,7 @@ class MainActivity : AppCompatActivity() {
                 query?.let {
                     countryViewModel.filterCountryDetails(it)
                 }
+                binding.countryListTxt.visibility = View.GONE
                 return false
             }
 
@@ -681,13 +682,20 @@ class MainActivity : AppCompatActivity() {
 
         // Show RecyclerView when searchView is clicked
         binding.searchView.setOnClickListener {
-            countryViewModel.showRecyclerView()
+            binding.countryListTxt.visibility = View.VISIBLE
+        }
+        binding.searchView.setOnCloseListener {
+            binding.countryListTxt.visibility = View.GONE
+            false
         }
 
-        // Reset RecyclerView visibility when SearchView is closed
-        binding.searchView.setOnCloseListener {
-            countryViewModel.hideRecyclerView()
-            false // Return false to proceed with default close behavior
+        // Add focus change listener to handle opening and closing
+        binding.searchView.setOnQueryTextFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                binding.countryListTxt.visibility = View.VISIBLE
+            } else {
+                binding.countryListTxt.visibility = View.GONE
+            }
         }
 
         // Fetch countries when the activity is created
